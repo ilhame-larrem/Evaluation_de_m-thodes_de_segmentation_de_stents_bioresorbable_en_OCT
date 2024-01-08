@@ -52,5 +52,5 @@ Notre code se résume de la manière suivante:
 
 Le but de cette étape est de faire un code qui permet l'analyse visuelle et quantitative de la précision de la segmentation automatique par rapport à la segmentation manuelle des struts, en mattent en évidence les régions de concordance et les divergence entre les deux méthodes de segmentation.
 
- ![Texte alternatif](chemin/vers/votre/image.png)
+ ![Texte alternatif](superposition_patient1_jour237.png)
 
