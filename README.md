@@ -52,5 +52,66 @@ Notre code se résume de la manière suivante:
 
 Le but de cette étape est de faire un code qui permet l'analyse visuelle et quantitative de la précision de la segmentation automatique par rapport à la segmentation manuelle des struts, en mattent en évidence les régions de concordance et les divergence entre les deux méthodes de segmentation.
 
- ![Texte alternatif](superposition_patient1_jour237.png)
+ ![résultat du code:](superposition_patient1_jour237.png)
+
+- Automatisation du code
+  
+Le but principal de cette étape est d'automatiser la classification des images de segmentation automatique des 6 patients en deux dossiers distincts : *Patient_X_J0* et *Patient_X_M6*, où *X* représente le numéro de chaque patient. Ces dossiers contiendront les images correspondant à chaque patient aux moments J0 et M6 respectivement, organisées selon des identifiants spécifiques à chaque patient pour les deux temps.
+
+```
+patient 1: 20141029182218 "J0" / 20150429114648 "M6"
+patient 2: 20141124130653 "J0" / 20150513104518 "M6"
+patient 3: 20141126124321 "J0" / 20150511103534 "M6"
+patient 4: 20141217150502 "J0" / 20150810114215 "M6"
+patient 5: 20150619093736 "J0" / 20151103152109 "M6"
+patient 6: 20150114125448 "J0" / 20150603113535 "M6"
+
+```
+Et donc après donner au code le chemin des dossiers crées, et les identifiants de chaque patient au moment J0 et au moment M6 et implémente la fonction suivante:
+
+```python
+def copier_images_du_patient(source_folder, identifiant_Patient, dossier_patient):
+    for dossier, _, fichiers in os.walk(source_folder):
+        for fichier in fichiers:
+            if fichier.startswith(identifiant_jour):
+                chemin_source = os.path.join(dossier, fichier)
+                shutil.copy(chemin_source, dossier_patient)
+```
+Notre fonction `copier_images_du_patient` prend en paramètre le `source_folder` qui correpond au chemin du dossier source ou se trouve les images à copier  , `identifiant_Patient` qui correpond au identifiantn unique du patient pour lequel nou svoulons copier les images et  `dossier_patient` qui correspond au chemin du dossier du destination ou les images du patient seront copiées. Le but de notre fonction est de copier les images correspondant à un patient spécifique depuis le dossier source vers le dossier patient destinataire. Ona utilisé `os.walk` pour parcourir le doussier source et copier les fichiers correspondant à l'identifiant spécifié du patient.
+
+Ensuite, pour chaque patient et pour chaque temps (J0 et M6), la fonction `copier_images_du_patient` est appelée avec les chemins appropriés du dossier source et destinaities ainsi que les identifiants spécifiques du patient pour copier les images dans les dossiers correspondants.
+
+```python
+# Copie pour le dossier Patient 1 J0
+copier_images_du_patient(dossier_train, identifiant_Patient_1_J0, dossier_patient_1_J0)
+copier_images_du_patient(dossier_test, identifiant_Patient_1_J0, dossier_patient_1_J0)
+```
+Chaque section de copie est duppliquée pour les dossiers `dossier_train` et `dossier_test`, ce qui suggère que les images à séparer sont présentes dans ces deux dossiers.
+
+Après avoir organisé les dossiers de manière distincte, nous avons automatisé la troisième étape du processus en vue de l'appliquer à l'ensemble des patients pour les dossiers J0 et M6. Cette automatisation vise à générer des fichiers textes ainsi que quatre sous-graphiques pour chaque patient dans les dossiers respectifs J0 et M6. En utilsant la fonctio suivante:
+
+```python
+def patient_segmentation(num_patient, dossier_manuelle, dossier_auto, dossier_graphes, fichier_resultats, debut, fin, identifiant_struts_manuelle, identifiant_struts_auto)
+```
+Cette fonction prend en paramètre l'identifiant du patient, les chemins vers les images de la segmentation manuelle et automatiques, le repétoires pour sauvgarder les graphiques, le fichier pour stocker les résultats, ainsi que des paramètres pour déterminer les coupes à traiter et les identifiants pour les images.
+
+```python
+patient_segmentation(
+    num_patient="1",
+    dossier_manuelle=r'C:\Master Techmed 2\TP synthèse\Biores\1\M6',
+    dossier_auto=r'C:\Master Techmed 2\TP synthèse\mrcnn\mrcnn\Patient1M6',
+    dossier_graphes=r'C:\Master Techmed 2\TP synthèse\result\GraphesM6patient1',
+    fichier_resultats=r'C:\Master Techmed 2\TP synthèse\result\resultatsM6patient1.txt',
+    debut=218,
+    fin=372,
+    identifiant_struts_manuelle="Struts_20150429114648",
+    identifiant_struts_auto="struts_cartesian_20150429114648"
+)
+```
+En utilisant ces paramètres, cette fonction charge les images, effectue la segmentation, crée des graphiques détaillé, et enregistre les résultats dans un fichier texte dédié. En modifiant les valeurs de ces paramètres et en appelant cette fonction avec différentes configurations, il est possible de d'automatiser le processus pour les 6 patients et différentes étapes temporelles.
+
+
+
+
+
 
