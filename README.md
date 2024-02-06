@@ -130,3 +130,16 @@ L'évolution de l'intégration et de l'état des stents est généralement éval
 L'objectif de cette section est de calculer le volume du polymère pour deux ensembles de données : la segmentation manuelle et la segmentation automatique. Ceci sera réalisé en comparant les sous-dossiers J0 et M6 pour chacun des six patients.
 
 L’approximation du volume des "struts" devient possible lorsque l’on dispose d’une série d’images bidimensionnelles capturées à des intervalles réguliers le long de l’axe longitudinal du stent. En utilisant cette approche, chaque image offre une perspective différente du stent, et leur ensemble peut être utilisé pour reconstruire une représentation tridimensionnelle de la structure. En effet, lors de l’acquisition d’images à des intervalles connus, les "struts" présents sur chaque image contribuent à la construction de volumes spécifiques dans l’espace tridimensionnel. En appliquant des techniques de reconstruction tridimensionnelle, il devient envisageable d’estimer le volume global occupé par les "struts" sur l’ensemble du stent.
+
+
+En effectuant le calcul du volume dans la segmentation manuelle, il est observé que pour le patient numéro 1, le volume mesuré était de 8965.0 mm³ à J0 et de 6389.5 mm³ à M6. Cela représente une diminution d'environ 2575.5 mm³ au cours des six mois d'observation.
+
+ Pour illustrer ces résultats, nous avons développé un programme destiné à anayser les données des patients. Ce code spécifique parcourt les sous-dossiers J0 etM6 correspondants à chaque patient, puis procède à une évaluation quantitative des pixels blancs dans les images associées. Cette démarche vise à représenter graphi
+quement l’évolution des volumes des struts au fil du temps.
+
+ <img width="249" alt="image" src="https://github.com/ilhame-larrem/Evaluation_de_m-thodes_de_segmentation_de_stents_bioresorbable_en_OCT/assets/114927808/e74e93b2-92e6-4e05-ab73-ec7688b80373">
+
+En comparant les points bleus (représentant la segmentation à J0) aux points verts (représentant la segmentation à M6), on peut remarquer que dans la plupart des cas, le nombre de pixels blancs (représentant le polymère du stent) a diminué après six mois. Cette diminution suggère une dégradation du stent au fil du temps, ce qui est conforme aux attentes pour un stent biorésorbable.
+
+Cette observation renforce l'idée que le polymère du stent biorésorbable se résorbe progressivement dans le temps, ce qui est une caractéristique souhaitable pour favoriser la guérison et la santé à long terme des patients traités avec ces dispositifs.
+
