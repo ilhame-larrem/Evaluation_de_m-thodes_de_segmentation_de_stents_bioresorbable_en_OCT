@@ -118,3 +118,15 @@ Il est crucial de souligner que les stents biorésorbables sont fabriqués à pa
 La figure ci-dessous met en évidence cette caractéristique en comparant deux types de stents utilisés en cardiologie : le stent *biorésorbable* situé en haut de l'image et le stent *actif* en bas. Les intervalles de temps sont indiqués en bas de chaque image pour faciliter la comparaison entre les deux types de stents.
 
 <img width="262" alt="image" src="https://github.com/ilhame-larrem/Evaluation_de_m-thodes_de_segmentation_de_stents_bioresorbable_en_OCT/assets/114927808/504e0c2f-8cf8-43f0-a91e-8e5a1c5b0571">
+
+Les images de la rangée supérieure présentent le "Stent Abbot Bioresorbable Vascular Scaffold (BVS)" et illustrent l'évolution de son intégration dans la paroi vasculaire sur une période allant de 1 mois à 4 ans. Ce type de stent biorésorbable est spécifiquement conçu pour se dégrader progressivement et être absorbé par l'organisme une fois qu'il a rempli sa fonction de maintien de l'ouverture de l'artère. Au fil du temps, on observe une diminution de la distinction du stent, suggérant une intégration plus profonde dans la paroi de l'artère.
+
+Les images de la rangée inférieure représentent des stents actifs, qui sont des stents revêtus de médicaments libérés lentement pour prévenir la resténose, c'est-à-dire la réduction de la lumière du vaisseau due à une croissance excessive des cellules. Contrairement aux stents biorésorbables, ces stents restent en place de manière permanente. Dans ces images, on constate que le stent reste visible et structurellement intact tout au long des 4 années d'observation.
+
+L'évolution de l'intégration et de l'état des stents est généralement évaluée à l'aide d'études histologiques telles que celles-ci. Ces études impliquent la coloration et l'examen au microscope de coupes transversales des vaisseaux sanguins avec le stent en place afin d'évaluer les changements dans le tissu et la structure du stent au fil du temps.
+
+-Calcul de volume de polymère: 
+
+L'objectif de cette section est de calculer le volume du polymère pour deux ensembles de données : la segmentation manuelle et la segmentation automatique. Ceci sera réalisé en comparant les sous-dossiers J0 et M6 pour chacun des six patients.
+
+L’approximation du volume des "struts" devient possible lorsque l’on dispose d’une série d’images bidimensionnelles capturées à des intervalles réguliers le long de l’axe longitudinal du stent. En utilisant cette approche, chaque image offre une perspective différente du stent, et leur ensemble peut être utilisé pour reconstruire une représentation tridimensionnelle de la structure. En effet, lors de l’acquisition d’images à des intervalles connus, les "struts" présents sur chaque image contribuent à la construction de volumes spécifiques dans l’espace tridimensionnel. En appliquant des techniques de reconstruction tridimensionnelle, il devient envisageable d’estimer le volume global occupé par les "struts" sur l’ensemble du stent.
