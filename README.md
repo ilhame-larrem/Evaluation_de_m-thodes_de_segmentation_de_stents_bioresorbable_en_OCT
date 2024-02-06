@@ -115,4 +115,6 @@ Dans la seconde phase de notre étude, nous nous sommes concentrés sur l'évalu
 
 Il est crucial de souligner que les stents biorésorbables sont fabriqués à partir d'un polymère spécifique qui possède une caractéristique unique : il se dégrade progressivement dans le corps au fil du temps. Cette propriété intrinsèque est fondamentale pour comprendre les résultats de notre étude, car elle influence directement le volume du polymère mesuré à différents moments. En observant les changements de volume entre **J0** et **M6**, nous pourrons mieux appréhender la dynamique de résorption du polymère et son impact sur l'efficacité et la sécurité des stents biorésorbables dans le traitement des patients.
 
+La figure ci-dessous met en évidence cette caractéristique en comparant deux types de stents utilisés en cardiologie : le stent *biorésorbable* situé en haut de l'image et le stent *actif* en bas. Les intervalles de temps sont indiqués en bas de chaque image pour faciliter la comparaison entre les deux types de stents.
 
+<img width="262" alt="image" src="https://github.com/ilhame-larrem/Evaluation_de_m-thodes_de_segmentation_de_stents_bioresorbable_en_OCT/assets/114927808/504e0c2f-8cf8-43f0-a91e-8e5a1c5b0571">
